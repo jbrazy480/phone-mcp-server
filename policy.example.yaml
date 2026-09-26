@@ -1,0 +1,9 @@
+# Optional policy.yaml. Environment variables take precedence.
+dry_run: true
+allowed_numbers:
+  - "+12125550123"
+# Explicit prefixes end in *, for example "+1212*".
+max_per_hour: 5
+max_message_length: 1000
+caller_name: "your assistant"
+# blocklist_file: data/blocked.txt

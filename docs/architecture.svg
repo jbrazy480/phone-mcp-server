@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+  <title id="title">Phone MCP server architecture</title>
+  <desc id="desc">MCP clients use authenticated transport to plan guarded actions. A human reviews the plan. Execution rechecks guards before a dry run or Twilio request. Masked audit and SQLite rate storage accompany execution.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#52647b"/></marker></defs>
+  <rect width="1000" height="440" rx="16" fill="#f5f8fc"/>
+  <g font-family="Arial, sans-serif" fill="#203048">
+    <text x="36" y="42" font-size="23" font-weight="bold">Phone MCP: plan, approve, execute</text>
+    <text x="36" y="68" font-size="14">Dry-run by default. Exact payload confirmation. Guards checked again at execution.</text>
+    <g stroke="#52647b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M206 145H242"/><path d="M426 145H460"/><path d="M650 145H690"/>
+      <path d="M789 187V234"/><path d="M740 275H647"/><path d="M840 275H891V332"/>
+      <path d="M555 187V234"/><path d="M700 307V322H554V338"/>
+    </g>
+    <g stroke="#c7d3e1" fill="#fff">
+      <rect x="36" y="104" width="170" height="83" rx="10"/>
+      <rect x="242" y="104" width="184" height="83" rx="10"/>
+      <rect x="460" y="104" width="190" height="83" rx="10"/>
+      <rect x="690" y="104" width="230" height="83" rx="10"/>
+      <rect x="460" y="234" width="187" height="73" rx="10"/>
+      <rect x="690" y="234" width="230" height="73" rx="10"/>
+      <rect x="460" y="338" width="187" height="60" rx="10"/>
+      <rect x="770" y="338" width="190" height="60" rx="10"/>
+    </g>
+    <g font-size="16" text-anchor="middle">
+      <text x="121" y="139" font-weight="bold">MCP client</text><text x="121" y="162" font-size="13">Claude / ChatGPT</text>
+      <text x="334" y="139" font-weight="bold">FastMCP</text><text x="334" y="162" font-size="13">stdio / HTTP + auth</text>
+      <text x="555" y="139" font-weight="bold">Plan + guards</text><text x="555" y="162" font-size="13">Payload hash + expiry</text>
+      <text x="805" y="139" font-weight="bold">Human reviews plan</text><text x="805" y="162" font-size="13">Explicit approval in client</text>
+      <text x="805" y="263" font-weight="bold">Execute + recheck</text><text x="805" y="286" font-size="13">Consume code, reserve rate</text>
+      <text x="554" y="263" font-weight="bold">Local storage</text><text x="554" y="286" font-size="13">Masked audit + SQLite</text>
+      <text x="554" y="364" font-weight="bold">Dry-run result</text><text x="554" y="386" font-size="13">No provider requests</text>
+      <text x="865" y="364" font-weight="bold">Twilio interface</text><text x="865" y="386" font-size="13">Say call / Messaging</text>
+    </g>
+  </g>
+</svg>
