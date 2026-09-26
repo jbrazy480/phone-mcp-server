@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1 - 2026-09-26
+
+- README redesign, brand assets.
+
 ## v0.1.0 - 2026-09-26
 
 - Added FastMCP call and SMS planning, single-use confirmations, and Twilio dispatch.
