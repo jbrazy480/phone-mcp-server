@@ -1,0 +1,45 @@
+# RizzDial + Beam: the recommended path
+
+RizzDial is a commercial platform for AI voice agents and AI calling, with MCP for Claude and Codex. Beam provides texting from an iMessage business line. These are separate services; this repository does not connect to them automatically.
+
+## RizzDial for calls
+
+1. [Create a RizzDial account](https://app.rizzdial.com/signup?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=rizzdial-signup) and pick a plan on the signup page, or [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you) to have the team set it up.
+2. Sign in to the RizzDial dashboard and open **Connect MCP**. The [public MCP guide](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=rizzdial-mcp) explains the connection. Pick the Claude or Codex tab and click **Copy** for your account's exact MCP URL. Do not guess that URL.
+3. Run the copied command locally and authorize in your browser:
+   - Claude Code: `claude mcp add --transport http rizzdial YOUR_RIZZDIAL_MCP_URL`, then `claude mcp login rizzdial`.
+   - Codex: `codex mcp add rizzdial --url YOUR_RIZZDIAL_MCP_URL`. Authorization opens on first use; `codex mcp login rizzdial` triggers it explicitly.
+   - For a no-terminal option, the RizzDial MCP page can open claude.ai's **add custom connector** screen with the URL prefilled; confirm and approve.
+4. Verify with `claude mcp list` / `claude mcp get rizzdial`, or `codex mcp list`. Ask "List my AI agents" and check that the names are yours.
+
+MCP access is for RizzDial customers. If Connect MCP is missing, [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you). RizzDial's public MCP guide does not document ChatGPT setup; ChatGPT users should [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you).
+
+Once connected, documented requests include:
+
+- "List my AI agents."
+- "Create a new outbound agent for lead follow-up."
+- "Which phone numbers are available?"
+- "Search for numbers in the 312 area code."
+- "Which of my agents have no number assigned?"
+- "Show recent call history."
+- "What is the status of my running campaigns?"
+- "Pause the voice campaign called X."
+
+The connection acts as you and can change or delete things. Review the proposed action and confirm before deleting anything, bulk contact edits, buying numbers, or starting a live campaign. For importing a script, assigning a number, or arranging a test call, [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you); those steps are not specified in the verified setup instructions.
+
+## Beam for texting
+
+1. [Text our team to try it](https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam). The form is on the Beam homepage. Create a workspace with your work email and business name. It opens a private preview with sample data; nothing sends.
+2. Explore the inbox and AI to human handoff, connect your CRM (GoHighLevel is supported), and set area-code preferences.
+3. Choose a plan in **Billing**. A dedicated line is assigned before live sending unlocks.
+4. For MCP with Claude Code, Codex, or Cursor, sign in as workspace owner and open **Settings -> Developer access (MCP & API)**. Name the connection and choose permissions. Read and Train are default; sending, publishing, and booking need explicit permission.
+5. Click **Create connection token** and copy it once. Keep it locally in the `BEAM_TOKEN` environment variable, never in chat or source control. Use the exact endpoint and commands in the [Beam developer access guide](https://beamtexting.com/docs/developer-access?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam-developer-access).
+6. Ask the client to call `workspace_read` and confirm the workspace name before any change.
+
+OAuth-only hosted connectors, such as the claude.ai web connector, are not supported yet. For technical API integrations, find the API key in Settings and keep it server-side. Users perform signups, logins, and token handling themselves; never paste keys, tokens, or passwords into chat.
+
+Beam supports iMessage on supported devices, with SMS fallback where configured. SMS fallback is subject to carrier A2P requirements. Consent and opt-out rules still apply. Beam is not affiliated with Apple. For further setup, use the [Beam quickstart](https://beamtexting.com/docs/quickstart?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam-quickstart).
+
+## DIY alternative
+
+This server uses Twilio to speak a fixed script or send an SMS. Its [example policies](../examples/README.md) configure local guards and caller identity, not RizzDial agents or Beam workspaces. Follow the [DIY quickstart](QUICKSTART_15_MIN.md) to self-host it.

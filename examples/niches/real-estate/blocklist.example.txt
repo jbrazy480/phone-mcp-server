@@ -1,0 +1,4 @@
+# Sample opt-out / do-not-call list for the real estate example config.
+# One exact E.164 number or starred prefix per line. Add a number here as soon as a client
+# asks to stop receiving calls or texts, in addition to any list-level consent tracking you keep.
++14805550199

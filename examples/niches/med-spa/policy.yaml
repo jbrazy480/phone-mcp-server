@@ -1,0 +1,11 @@
+# Example starter config for a med spa appointment-reminder use case.
+# Fictional business and fictional NANP test number (555-01xx block). Not a real number.
+# Copy this file to policy.yaml at the repo root (or point POLICY_FILE at it), then replace
+# allowed_numbers with your own phone number in E.164 before placing a real test call.
+dry_run: true
+allowed_numbers:
+  - "+13055550101"
+caller_name: "Example Glow Med Spa"
+max_per_hour: 5
+max_message_length: 500
+blocklist_file: examples/niches/med-spa/blocklist.example.txt

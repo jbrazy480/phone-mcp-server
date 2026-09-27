@@ -47,4 +47,6 @@ def test_doctor(tmp_path, monkeypatch, capsys):
     monkeypatch.setenv('DRY_RUN','false')
     monkeypatch.setenv('TWILIO_AUTH_TOKEN','private-test-value')
     assert check.main() == 1
-    assert 'private-test-value' not in capsys.readouterr().out
+    out = capsys.readouterr().out
+    assert 'private-test-value' not in out
+    assert 'docs/GET_YOUR_KEYS.md' in out

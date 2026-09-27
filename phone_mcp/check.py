@@ -34,7 +34,8 @@ def main() -> int:
         return 0
     except Exception:
         print(json.dumps({'ok': False, 'checks': checks,
-                          'error': 'Check policy/env values, live credentials, blocklist and writable storage. Secrets omitted.'}))
+                          'error': 'Check policy/env values, live credentials, blocklist and writable storage. '
+                                   'Secrets omitted. Missing a Twilio value? See docs/GET_YOUR_KEYS.md.'}))
         return 1
 
 

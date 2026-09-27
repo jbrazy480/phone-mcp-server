@@ -17,6 +17,14 @@ def offline(monkeypatch):
     monkeypatch.setattr(socket, 'create_connection', deny)
 
 
+@pytest.fixture(autouse=True)
+def no_real_dotenv(monkeypatch):
+    """python-dotenv's load_dotenv() locates .env from this package's file path,
+    not from cwd, so a real .env created next to a checkout (per the README) would
+    otherwise leak into every test regardless of monkeypatch.chdir."""
+    monkeypatch.setattr('phone_mcp.config.load_dotenv', lambda *args, **kwargs: False)
+
+
 class FakeProvider:
     def __init__(self):
         self.requests = []

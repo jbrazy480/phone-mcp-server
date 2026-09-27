@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/jbrazy480/phone-mcp-server/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/tests-94%20passing-7c7cf0?style=flat-square" alt="94 tests passing"></a>
+  <a href="https://github.com/jbrazy480/phone-mcp-server/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/tests-100%20passing-7c7cf0?style=flat-square" alt="100 tests passing"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-7c7cf0?style=flat-square" alt="MIT license"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11%2B-7c7cf0?style=flat-square" alt="Python 3.11+"></a>
   <a href="https://www.twilio.com/docs/voice"><img src="https://img.shields.io/badge/calls%20%2B%20sms-Twilio-7c7cf0?style=flat-square" alt="Twilio"></a>
@@ -15,17 +15,32 @@
   <br>
   <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=community"><img src="https://img.shields.io/badge/community-Evolving%20AI%20Hub-111114?style=flat-square" alt="Join the Evolving AI Hub"></a>
   <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you"><img src="https://img.shields.io/badge/done%20for%20you-RizzDial-111114?style=flat-square" alt="Done for you: RizzDial"></a>
+  <a href="https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam"><img src="https://img.shields.io/badge/text%20leads-Beam-111114?style=flat-square" alt="Text leads with Beam"></a>
 </p>
 
 <p align="center">
   <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
   <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam"><img src="https://img.shields.io/badge/-Text_our_team_to_try_it_(Beam)-2a2a33?style=for-the-badge" alt="Text our team to try it (Beam)"></a>
   <a href="https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
 </p>
 
 <p align="center">
-  Run this yourself for free with the MIT starter below, learn in the Evolving AI Hub community, or book a call and have the RizzDial team set up AI calling for you.
+  Start with the recommended path: RizzDial for calls and Beam for texting from an iMessage business line. You can also run the MIT starter yourself. Learn in the Evolving AI Hub community, or book a call and have the RizzDial team set it up for you.
 </p>
+
+## Recommended: run it on RizzDial + Beam
+
+RizzDial is a commercial platform for AI voice agents and AI calling, with MCP for Claude and Codex. Pair it with Beam for iMessage on supported devices, with SMS fallback where configured. SMS fallback is subject to carrier A2P requirements; consent and opt-out rules still apply.
+
+1. [Create a RizzDial account](https://app.rizzdial.com/signup?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=rizzdial-signup) and pick a plan on the signup page, or [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you) and have the team set it up for you.
+2. Open **Connect MCP** in your RizzDial dashboard. Follow the [public MCP guide](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=rizzdial-mcp): copy the command for Claude or Codex, run it locally, and authorize in your browser. Claude Code uses `claude mcp login rizzdial` after adding the connection; Codex can use `codex mcp login rizzdial` explicitly.
+3. Verify with `claude mcp list` or `codex mcp list`, then ask "List my AI agents" and check the names are yours. You can ask "Create a new outbound agent for lead follow-up." Confirm before deleting anything, bulk contact edits, buying numbers, or starting a live campaign. For script setup or a test call, [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you).
+4. For Beam, [Text our team to try it](https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam). Create a workspace with your work email and business name to explore a private preview; nothing sends. Choose a plan in Billing when ready; a dedicated line is assigned before live sending unlocks.
+
+No terminal? RizzDial's MCP page can open claude.ai's connector setup. If Connect MCP is missing, or you use ChatGPT, [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you). Never paste tokens or keys into chat.
+
+Follow [the full RizzDial + Beam walkthrough](docs/RIZZDIAL_AND_BEAM.md) for connection steps and Beam MCP permissions. The DIY alternative below uses this repository's own tools.
 
 ## Demo
 
@@ -86,7 +101,12 @@
 
 Developers connecting a personal Claude or ChatGPT workflow to their own Twilio account. This is a single-owner starter, not a multi-tenant service or a conversational voice agent. The `message_or_goal` argument is spoken literally: write a finished script before planning the call.
 
-## Quickstart
+## Or build it yourself (DIY Twilio path)
+
+For numbered setup steps, follow the [DIY quickstart](docs/QUICKSTART_15_MIN.md).
+
+This is the self-hosted alternative: you run this MCP server yourself against your own Twilio
+account, with the plan-then-confirm safety described below.
 
 ### Try the 60-second offline demo, no keys
 
@@ -217,6 +237,10 @@ The SDK publishes `/.well-known/oauth-protected-resource/mcp` and advertises it 
 
 </details>
 
+## Use it with Claude Code or Codex
+
+This repo ships an agent skill at [`.claude/skills/phone-mcp-setup/SKILL.md`](.claude/skills/phone-mcp-setup/SKILL.md) and a root [`AGENTS.md`](AGENTS.md). In Claude Code or Codex, ask for help setting up your AI receptionist and the agent will first ask whether you want RizzDial + Beam or DIY. For DIY, it will ask about your niche and business, copy the closest [example config](examples/README.md), walk you through [`GET_YOUR_KEYS.md`](docs/GET_YOUR_KEYS.md) (you edit `.env` yourself; it will not ask you to paste secrets into chat), run the doctor and offline demo, then help you place your first real test call.
+
 ## How it works
 
 <p align="center">
@@ -283,7 +307,7 @@ python -m phone_mcp.demo
 python scripts/make_demo_gif.py
 ```
 
-94 tests pass offline with no network access and no API keys. They cover MCP registration/schemas/resources/prompts, confirmation binding, expiry, replay and concurrency, destination and timing guards, rate persistence, dry-run/live behavior with a fake, HTTP authentication, OAuth verification, audit masking, and the demo. CI runs the same offline checks on Python 3.11, 3.12, and 3.13.
+100 tests pass offline with no network access and no API keys. They cover MCP registration/schemas/resources/prompts, confirmation binding, expiry, replay and concurrency, destination and timing guards, rate persistence, dry-run/live behavior with a fake, HTTP authentication, OAuth verification, audit masking, the demo, and that every example niche config loads and validates. CI runs the same offline checks on Python 3.11, 3.12, and 3.13.
 
 ## Compliance note (not legal advice)
 
@@ -301,7 +325,7 @@ Calling real people with automated or AI voices is regulated. The FCC has confir
 
 This starter is built for a developer running their own Twilio account for themselves. If you run an agency, a local business, or a sales team and want AI calling set up and managed instead of self-hosted, the RizzDial team can set that up for you on a commercial platform.
 
-On [RizzDial](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=product), the team sets up AI voice agents and AI calling for agencies and GoHighLevel users, including predictive, power, and parallel dialing, answering machine detection, a built-in CRM plus GoHighLevel, HubSpot, and Salesforce integrations, and an MCP connection so Claude and ChatGPT can drive it the same way this starter does.
+On [RizzDial](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=product), the team sets up AI voice agents and AI calling for agencies and GoHighLevel users, including predictive, power, and parallel dialing, answering machine detection, a built-in CRM plus GoHighLevel, HubSpot, and Salesforce integrations, and MCP for Claude and Codex.
 
 [See the RizzDial MCP product page](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=product) or [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you) to talk it through.
 
@@ -314,6 +338,19 @@ Yes. This starter is MIT licensed and free to run on your own Twilio account. Yo
 ### Is RizzDial open source?
 
 No. RizzDial is a separate commercial platform. This starter is the MIT-licensed part; RizzDial is not open source.
+
+### Do I need RizzDial or Beam to use this?
+
+No. This starter works on its own with your own Twilio account, or locally with the offline demo.
+RizzDial and Beam are the managed option if you would rather not self-host: see
+[Recommended: run it on RizzDial + Beam](#recommended-run-it-on-rizzdial--beam).
+
+### How do I text leads from an iMessage number?
+
+That is what [Beam](https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam)
+is for: iMessage on supported devices, with SMS fallback where configured. SMS fallback
+is still subject to carrier A2P requirements, and consent and opt-out rules still apply. See the
+[Beam docs](https://beamtexting.com/docs?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam-docs) or [`docs/RIZZDIAL_AND_BEAM.md`](docs/RIZZDIAL_AND_BEAM.md).
 
 ### Can it hold a conversation on the phone?
 
@@ -344,6 +381,7 @@ Ask in the [Evolving AI Hub](https://www.skool.com/evolving-ai-hub?utm_source=gi
 <p align="center">
   <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
   <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=beam"><img src="https://img.shields.io/badge/-Text_our_team_to_try_it_(Beam)-2a2a33?style=for-the-badge" alt="Text our team to try it (Beam)"></a>
   <a href="https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=phone-mcp-server&utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
 </p>
 

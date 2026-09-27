@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phone-mcp-server"
-version = "0.1.0"
+version = "0.3.0"
 description = "Guarded Twilio calls and SMS through MCP"
 requires-python = ">=3.11"
 dynamic = ["dependencies"]
